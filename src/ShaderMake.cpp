@@ -1224,6 +1224,9 @@ void DxcCompile()
                 Printf(WHITE "%ls\n", cmd.str().c_str());
             }
 
+            // Expand the operands before performing token-pasting operation (fxc behavior)
+            args.push_back(L"-flegacy-macro-expansion");
+
             // Now that args are finalized, get their C-string pointers into a vector
             vector<const wchar_t*> argPointers;
             argPointers.reserve(args.size());
